@@ -1,30 +1,72 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
+
 /**
-* _printf - The printf function
-* @format - The format string with conversion
-* Return - The number of characters printed(excluding the null byte used to end output to strings)
-*/
+ * _printf - The printf function
+ * @format: The format string with conversion specifiers
+ * Return: The number of characters printed(excluding the null byte)
+ */
+
 int _printf(const char *format, ...)
 {
-     va_list args;
-     int num = 0;
+va_list args;
+int num = 0;
 
-     if (format == NULL)
-         return -1;
-     va_start(args, format)
-     while (*format)
-     {
-     if (format != '%')
-     {
-     putchar(*format);
-     count++;
-     }
-     else
-     { 
-     format++;
-     switch(*format)
-     {
-       
+if (format == NULL)
+return -1;
 
+va_start(args, format);
+
+while (*format)
+{
+if (*format != '%')
+{
+putchar(*format);
+count++;
+}
+else
+{
+format++;
+switch(*format)
+{
+case 'c':
+//print a character
+putchar(va_arg(args, int));
+count++;
+break;
+case 's':
+//print a string
+count+=_print_str(va_arg(args, character);
+break;
+case '%':
+//print a single '%'
+putchar('%');
+count++;
+break;
+}
+}
+format++;
+}
+va_end(args);
+return count;
+}
+/**
+* _print_str - Function to print a string
+* @atr: String to be printed
+* Return: The number of characters printed (excluding the null byte used to end output to strings)
+*/
+int _print_str(char *str)
+{
+int i = 0;
+
+if (str == NULL)
+str = "(null)";
+
+while (str[i])
+{
+putchar(str[i]);
+i++;
+}
+return i;
+}
