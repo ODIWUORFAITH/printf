@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "main.h"
 
 /**
  * charprinter - returns a character
@@ -51,7 +51,7 @@ char *allocEmptyMem(void)
 	char *buff;
 
 	buff = malloc(sizeof(*buff) * 1024);
-	if (buff = NULL)
+	if (buff == NULL)
 		return (NULL);
 	return (buff);
 }
@@ -59,12 +59,12 @@ char *allocEmptyMem(void)
  * writeAll - reallocates memory allocated earlier for string
  * and prints the string to starndad I/O
  */
-void writeAll(char *str, int len)
+void writeAll(char *str, int len, va_list pr)
 {
 	char *buff;
 
-	buff = realloc(str, len);//reallocate the large allocated space
-				//to correct string size
+	buff = realloc(str, len);
 	write(1, buff, len);
 	free(buff);
+	va_end(pr);
 }

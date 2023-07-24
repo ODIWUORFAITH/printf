@@ -1,4 +1,4 @@
-#include "../main.h"
+#include "main.h"
 
 /**
  * _printf - produces output according to a format
@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	char *str, *strHolder;
 	va_list pr;
 
-	str = allocMemEmpty();
+	str = allocEmptyMem();
 	va_start(pr, format);
 	if (str != NULL)
 	{
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == '%')//handle double %
+			if (format[i] == '%')
 			{
 				str[len++] = '%';
 				fullLen++;
@@ -39,6 +39,7 @@ int _printf(const char *format, ...)
 					str[len++] = '\0';
 					fullLen++;
 				}
+				str[len++] = strHolder[0];
 			}
 			if (format[i] == 's')
 			{
@@ -46,7 +47,7 @@ int _printf(const char *format, ...)
 				if (strHolder != NULL)
 				{
 					j = 0;
-					while(strHolder[j] != NULL)
+					while(strHolder[j] != '\0')
 					{
 						str[len++] = strHolder[j++];
 						fullLen++;
@@ -56,6 +57,7 @@ int _printf(const char *format, ...)
 			i++;
 		}
 	}
-	writeAll(str, fullLen);
+	writeAll(str, fullLen, pr);
+	}
 	return (fullLen);
 }

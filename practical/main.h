@@ -3,8 +3,17 @@
 
 #include <stdlib.h>
 #include <stddef.h>
+#include <stdio.h>
+#include <stdarg.h>
 
 int _printf(const char *format, ...);
+char *charprinter(va_list pr);
+char *strprinter(va_list pr);
+char *allocEmptyMem(void);
+void writeAll(char *str, int len, va_list pr);
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+
 
 /**
  * struct typeFunc - stores specifier type and
