@@ -37,7 +37,7 @@ char *strprinter(va_list pr)
 	str = malloc(sizeof(char *) * len + 1);
 	if (str == NULL)
 		return (NULL);
-	_strcopy(str, str1);
+	_strcpy(str, str1);
 
 	return (str);
 }

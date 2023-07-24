@@ -14,7 +14,7 @@ char *allocEmptyMem(void);
 void writeAll(char *str, int len, va_list pr);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
-
+char *(*getFunction(char spec))(va_list pr);
 
 /**
  * struct typeFunc - stores specifier type and
@@ -24,7 +24,7 @@ char *_strcpy(char *dest, char *src);
  */
 typedef struct typeFunc
 {
-	char *type;
+	char type;
 	char* (*func)(va_list);
 }typeFunc;
 

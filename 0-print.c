@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	int len = 0, fullLen = 0, i = 0, j;
 	char *str, *strHolder;
 	va_list pr;
+	char *(*func)(va_list);
 
 	str = allocEmptyMem();
 	va_start(pr, format);
@@ -31,19 +32,15 @@ int _printf(const char *format, ...)
 				str[len++] = '%';
 				fullLen++;
 			}
-			if (format[i] == 'c')
+			func = getFunction(format[i]);
+			if (func != NULL)
 			{
-				strHolder = strprinter(pr);
+				strHolder = func(pr);
 				if (format[i] == 'c' && strHolder[0] == '\0')
 				{
 					str[len++] = '\0';
 					fullLen++;
 				}
-				str[len++] = strHolder[0];
-			}
-			if (format[i] == 's')
-			{
-				strHolder = charprinter(pr);
 				if (strHolder != NULL)
 				{
 					j = 0;
@@ -53,6 +50,7 @@ int _printf(const char *format, ...)
 						fullLen++;
 					}
 				}
+
 			}
 			i++;
 		}
