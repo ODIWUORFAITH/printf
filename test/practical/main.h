@@ -18,7 +18,7 @@ char *_strcpy(char *dest, char *src);
 char *(*getFunction(char spec))(va_list pr);
 char *intToString(va_list pr);
 int *_log10(int num);
-
+void print_binary(char specifier, unsigned int value);
 
 /**
  * struct typeFunc - stores specifier type and
