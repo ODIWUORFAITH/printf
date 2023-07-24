@@ -13,6 +13,8 @@ char *(*getFunction(char spec))(va_list pr)
 	typeFunc functions[] = {
 		{'c', charprinter},
 		{'s', strprinter},
+		{'d', intToString},
+		{'i', intToString},
 		{'\0', NULL}
 	};
 

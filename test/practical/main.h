@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <math.h>
 
 int _printf(const char *format, ...);
 char *charprinter(va_list pr);
@@ -15,6 +16,9 @@ void writeAll(char *str, int len, va_list pr);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *(*getFunction(char spec))(va_list pr);
+char *intToString(va_list pr);
+int *_log10(int num);
+
 
 /**
  * struct typeFunc - stores specifier type and
