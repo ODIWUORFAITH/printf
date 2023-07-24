@@ -26,6 +26,6 @@ typedef struct typeFunc
 {
 	char type;
 	char* (*func)(va_list);
-}typeFunc;
-
+}
+typeFunc;
 #endif
