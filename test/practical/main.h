@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <math.h>
 
+int _putchar(char c);
 int _printf(const char *format, ...);
 char *charprinter(va_list pr);
 char *strprinter(va_list pr);
