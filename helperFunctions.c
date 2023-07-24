@@ -29,6 +29,7 @@ char *strprinter(va_list pr)
 {
 	char *str, *str1;
 	int len;
+
 	str1 = va_arg(pr, char *);
 	if (str1 == NULL)
 		str1 = "(nul)";
