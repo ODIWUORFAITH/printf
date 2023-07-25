@@ -8,7 +8,7 @@
 
 char *itoOctal(va_list pr)
 {
-	int temp, num, j = 0, indice = 1;
+	int temp, num, j = 0;
 	char *s;
 
 	num = va_arg(pr, int);
@@ -26,19 +26,18 @@ char *itoOctal(va_list pr)
 		temp *= -1;
 	}
 
-	while (num > 1)
+	while (temp > 0)
 	{
-		num /= 8;
-		indice *= 8;
-	}
-
-	while (indice > 0)
-	{
-		s[j++] = (temp / indice + '0');
-		temp %= indice;
-		indice /= 8;
+		if (temp < 8)
+		{
+			s[j++] = temp + '0';
+			break;
+		}
+		s[j++] = (temp % 8) + '0';
+		temp /= 8;
 	}
 	s[j] = '\0';
 
 	return (s);
 }
+
