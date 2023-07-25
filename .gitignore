@@ -2,3 +2,6 @@ run
 test
 testMain.c
 modOctal
+.backup
+.backup2
+a.out

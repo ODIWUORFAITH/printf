@@ -39,12 +39,3 @@ int binary_printf(const char *format, ...)
 	va_end(args);
 	return (printed_chars);
 }
-int main(void)
-{
-	unsigned int num1 = 42;
-	unsigned int num2 = 100;
-
-	binary_printf("Binary representation of %%b: %b\n", num1);
-	binary_printf("Binary representation of %%b: %b\n", num2);
-	return (0);
-}

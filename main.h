@@ -25,7 +25,7 @@ char *reverseStr(va_list pr);
 char *rot13(va_list list);
 char *u_intToString(va_list pr);
 int _log2(int num);
-int binary_printf(const,char *format, ...);
+int binary_printf(const char *format, ...);
 
 /**
  * struct typeFunc - stores specifier type and
