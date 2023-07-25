@@ -49,28 +49,46 @@ char *strprinter(va_list pr)
  */
 char *intToString(va_list pr)
 {
-	char *str, *finalStr;
-	unsigned int i = 0, log, num, temp, bigInt, *arrStore;
+	char *str, *finalStr, sign;
+	int i = 0, log, num, temp, bigInt, *arrStore;
 
-	num = va_arg(pr, unsigned int);
+	num = va_arg(pr, int);
 	temp = num;
-	arrStore = _log10(num);
+	if (temp < 0)
+	{
+		sign = '-';
+		temp *= -1;
+	}
+	arrStore = _log10(temp);
 	log = arrStore[0];
 	bigInt = arrStore[1];
 	str = malloc(sizeof(*str) * log);
 	if (str != NULL)
 	{
+		if (sign == '-')
+		{
+			str[i++] = '-';
+		}
 		while (bigInt >= 1)
 		{
-			str[i] = ((temp / bigInt) + '0');
+			str[i++] = ((temp / bigInt) + '0');
 			temp = temp % bigInt;
 			bigInt /= 10;
-			i++;
 		}
 		str[i] = '\0';
 	}
 	finalStr = malloc(sizeof(char) * i);
 	i = 0;
+	if (sign == '-')
+	{
+		i = 1;
+		finalStr[0] = '-';
+		while (str[i] != '\0')
+		{
+			finalStr[i] = str[i + 1];
+			i++;
+		}
+	}
 	while (str[i] != '\0')
 	{
 		finalStr[i] = str[i + 1];

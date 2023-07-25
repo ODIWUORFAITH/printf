@@ -5,3 +5,8 @@ modOctal
 .backup
 .backup2
 a.out
+getsize
+getwidth
+precision
+_putchar.c
+uiToString

@@ -5,9 +5,9 @@
  * @num: integer argument to find log
  * Return: log of num
  */
-unsigned int *_log10(unsigned int num)
+int *_log10(int num)
 {
-	unsigned int log = 0, temp = num, bigInt = 1, *arrStore;
+	int log = 0, temp = num, bigInt = 1, *arrStore;
 	
 	arrStore = malloc(sizeof(*arrStore) * 2);
 	while (temp > 0)

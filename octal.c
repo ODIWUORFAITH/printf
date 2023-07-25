@@ -8,23 +8,23 @@
 
 char *itoOctal(va_list pr)
 {
-	int temp, num, j = 0;
-	char *s;
+	unsigned int temp, num, j = 0, len, i = 0;
+	char *s, *fstr;
 
-	num = va_arg(pr, int);
+	num = va_arg(pr, unsigned int);
 	temp = num;
 
 	s = malloc(sizeof(char) * 12);
 	if (s == NULL)
 		return (NULL);
 
-	if (num < 0)
+	/*if (num < 0)
 	{
 		s[0] = 1 + '0';
 		j++;
 		num *= -1;
 		temp *= -1;
-	}
+	}*/
 
 	while (temp > 0)
 	{
@@ -37,7 +37,15 @@ char *itoOctal(va_list pr)
 		temp /= 8;
 	}
 	s[j] = '\0';
-
-	return (s);
+	s = realloc(s, j);
+	fstr = malloc(sizeof(char) * j);
+	len = j;
+	j--;
+	while (i <= (len - 1))
+	{
+		fstr[i++] = s[j--];
+	}
+	fstr[i] = '\0';
+	return (fstr);
 }
 

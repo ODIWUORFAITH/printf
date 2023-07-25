@@ -18,7 +18,7 @@ char *(*getFunction(char spec))(va_list pr)
 		{'b', _itob},
 		{'o', itoOctal},
 		{'r', reverseStr},
-		{'u', intToString},
+		{'u', intToStr},
 		{'X', intToHexUpper},
 		{'x', intToHexLower},
 		{'\0', NULL}
