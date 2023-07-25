@@ -7,7 +7,7 @@
  */
 char *_itob(va_list pr)
 {
-	char *str;
+	char *str, *finalStr;
 	int num, i = 0, temp, bigInt;
 
 	num = va_arg(pr, int);
@@ -31,8 +31,15 @@ char *_itob(va_list pr)
 			i++;
 		}
 		str[i] = '\0';
+		finalStr = malloc(sizeof(char) * i);
+		i = 0;
+		while (str[i] != '\0')
+		{
+			finalStr[i] = str[i + 1];
+			i++;
+		}
 	}
-	return (str);
+	return (finalStr);
 
 }
 

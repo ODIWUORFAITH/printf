@@ -49,7 +49,7 @@ char *strprinter(va_list pr)
  */
 char *intToString(va_list pr)
 {
-	char *str;
+	char *str, *finalStr;
 	int i = 0, log, num, temp, bigInt, *arrStore;
 
 	num = va_arg(pr, int);
@@ -69,7 +69,14 @@ char *intToString(va_list pr)
 		}
 		str[i] = '\0';
 	}
-	return (str);
+	finalStr = malloc(sizeof(char) * i);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		finalStr[i] = str[i + 1];
+		i++;
+	}
+	return (finalStr);
 }
 
 /**
