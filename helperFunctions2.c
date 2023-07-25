@@ -10,7 +10,7 @@ int *_log10(int num)
 	int log = 0, temp = num, bigInt = 1, *arrStore;
 	
 	arrStore = malloc(sizeof(*arrStore) * 2);
-	while (temp != 0)
+	while (temp > 0)
 	{
 		log++;
 		bigInt *= 10;
@@ -20,4 +20,3 @@ int *_log10(int num)
 	arrStore[1] = bigInt;
 	return (arrStore);
 }
-

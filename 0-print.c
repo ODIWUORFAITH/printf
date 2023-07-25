@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			str[len++] = format[i++];
-			fullLen++;
+			fullLen++;		
 		}
 		if (format[i] == '%')
 		{
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 				if (strHolder != NULL)
 				{
 					j = 0;
-					while (strHolder[j] != '\0')
+					while(strHolder[j] != '\0')
 					{
 						str[len++] = strHolder[j++];
 						fullLen++;

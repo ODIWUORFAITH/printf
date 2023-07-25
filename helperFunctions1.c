@@ -60,18 +60,6 @@ char *intToString(va_list pr)
 	str = malloc(sizeof(*str) * log);
 	if (str != NULL)
 	{
-		if (temp < 0)
-		{
-			str[0] = '-';
-			i++;
-			while (temp < 0)
-			{
-				str[i] = ((temp / bigInt) * -1 + '0');
-				temp = temp % bigInt;
-				bigInt /= 10;
-				i++;
-			}
-		}
 		while (bigInt >= 1)
 		{
 			str[i] = ((temp / bigInt) + '0');
@@ -83,6 +71,7 @@ char *intToString(va_list pr)
 	}
 	return (str);
 }
+
 /**
  * allocEmptyMem - allocates Empty memory for storing a string
  * Return: character pointer to the allocated memory

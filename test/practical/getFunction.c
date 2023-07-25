@@ -15,6 +15,10 @@ char *(*getFunction(char spec))(va_list pr)
 		{'s', strprinter},
 		{'d', intToString},
 		{'i', intToString},
+		{'b', _itob},
+		{'o', itoOctal},
+		{'r', reverseStr},
+		{'u', u_intToString},
 		{'\0', NULL}
 	};
 
