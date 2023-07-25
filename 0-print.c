@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			str[len++] = format[i++];
-			fullLen++;
+			fullLen++;		
 		}
 		if (format[i] == '%')
 		{

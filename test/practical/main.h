@@ -19,6 +19,12 @@ char *_strcpy(char *dest, char *src);
 char *(*getFunction(char spec))(va_list pr);
 char *intToString(va_list pr);
 int *_log10(int num);
+char *_itob(va_list pr);
+char *itoOctal(va_list pr);
+char *reverseStr(va_list pr);
+char *rot13(va_list list);
+char *u_intToString(va_list pr);
+int _log2(int num);
 
 /**
  * struct typeFunc - stores specifier type and
