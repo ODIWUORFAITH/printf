@@ -7,7 +7,7 @@
  * @param format: the format string for the binary representation.
  * Return: the number of characters printed (excluding the null)
  */
-void binary_printf(const char* format, int number)
+int binary_printf(const char *format, ...)
 {
 	va_list args;
 
