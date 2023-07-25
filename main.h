@@ -18,13 +18,15 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *(*getFunction(char spec))(va_list pr);
 char *intToString(va_list pr);
-int *_log10(int num);
+unsigned int *_log10(unsigned int num);
 char *_itob(va_list pr);
 char *itoOctal(va_list pr);
 char *reverseStr(va_list pr);
 char *rot13(va_list list);
 char *u_intToString(va_list pr);
 int _log2(int num);
+char *intToHexUpper(va_list pr);
+char *intToHexLower(va_list pr);
 int binary_printf(const char *format, ...);
 
 /**

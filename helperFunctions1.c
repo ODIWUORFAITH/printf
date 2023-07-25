@@ -50,9 +50,9 @@ char *strprinter(va_list pr)
 char *intToString(va_list pr)
 {
 	char *str, *finalStr;
-	int i = 0, log, num, temp, bigInt, *arrStore;
+	unsigned int i = 0, log, num, temp, bigInt, *arrStore;
 
-	num = va_arg(pr, int);
+	num = va_arg(pr, unsigned int);
 	temp = num;
 	arrStore = _log10(num);
 	log = arrStore[0];
